@@ -134,10 +134,12 @@ void TransferSkt::send(const QString& key, bool s2d, const QString& data)
 		QString err;
 		QByteArray bin;
 
-		if (!TK::ascii2bin(data, bin, err))
-			show("bad data format to send: "+err);
-		else
-			send(v, s2d, bin);
+		//if (!TK::ascii2bin(data, bin, err))
+		//	show("bad data format to send: "+err);
+		//else
+		//	send(v, s2d, bin);
+		bin = data.toUtf8();
+		send(v, s2d, bin);
 	}
 }
 

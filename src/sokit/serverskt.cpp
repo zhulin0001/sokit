@@ -137,10 +137,12 @@ void ServerSkt::send(const QString& key, const QString& data)
 		QString err;
 		QByteArray bin;
 
-		if (!TK::ascii2bin(data, bin, err))
-			show("bad data format to send: "+err);
-		else
-			send(v, bin);
+		bin = data.toUtf8();
+		send(v, bin);
+		//if (!TK::ascii2bin(data, bin, err))
+		//	show("bad data format to send: "+err);
+		//else
+		//	send(v, bin);
 	}
 }
 

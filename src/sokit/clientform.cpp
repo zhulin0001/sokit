@@ -174,7 +174,7 @@ bool ClientForm::plug(bool istcp)
 void ClientForm::send(const QString& data, const QString&)
 {
 	if (m_client && lock(1000))
-	{
+	{ 
 		m_client->send(data);
 		unlock();
 	}

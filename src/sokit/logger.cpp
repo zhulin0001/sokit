@@ -231,7 +231,8 @@ void Logger::output(const QString& title, const char* buf, quint32 len)
 
 	out << title
 		<< " <" << len << "> "
-		<< TK::bin2ascii(buf, len);
+		//<< TK::bin2ascii(buf, len);
+		<< QString::fromUtf8(buf, len);
 
 	QString hex = TK::bin2hex(buf, len);
 

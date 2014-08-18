@@ -50,11 +50,12 @@ void ClientSkt::send(const QString& data)
 	QString err;
 	QByteArray bin;
 
-	if (!TK::ascii2bin(data, bin, err))
-	{
-		show("bad data format to send: "+err);
-		return;
-	}
+	//if (!TK::ascii2bin(data, bin, err))
+	//{
+	//	show("bad data format to send: "+err);
+	//	return;
+	//}
+	bin = data.toUtf8();
 
 	send(bin);
 }
